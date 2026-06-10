@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>stitchfolio — Build Your Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+</head>
+<body>
+
+  <!-- HEADER & NAV -->
+  <header class="site-header">
+    <nav class="nav-container" aria-label="Main navigation">
+      <div class="nav-logo">stitchfolio</div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks" role="list">
+        <li><a href="#builder" class="nav-link">Builder</a></li>
+        <li><a href="#preview" class="nav-link">Preview</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO SECTION -->
+    <section class="hero-section" aria-labelledby="hero-heading">
+      <div class="hero-content">
+        <p class="hero-eyebrow">Full Stack Project — DecodeLabs 2026</p>
+        <h1 id="hero-heading" class="hero-title">
+          Build a Portfolio<br /><span class="hero-accent">That Speaks.</span>
+        </h1>
+        <p class="hero-desc">
+          Fill in your details, watch your portfolio come alive in real time,
+          then save and share it with the world.
+        </p>
+        <a href="#builder" class="btn btn-primary">Start Building →</a>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="floating-card card-1">
+          <span class="fc-label">Skills</span>
+          <div class="fc-tags">
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3</span>
+            <span class="tag">JavaScript</span>
+          </div>
+        </div>
+        <div class="floating-card card-2">
+          <span class="fc-label">Projects</span>
+          <p class="fc-text">Portfolio Maker App</p>
+          <p class="fc-sub">Full Stack · 2026</p>
+        </div>
+        <div class="floating-card card-3">
+          <span class="fc-label">Experience</span>
+          <p class="fc-text">DecodeLabs Intern</p>
+          <p class="fc-sub">Batch 2026</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BUILDER SECTION -->
+    <section class="builder-section" id="builder" aria-labelledby="builder-heading">
+      <div class="builder-layout">
+
+        <!-- FORM PANEL -->
+        <div class="form-panel" role="form" aria-label="Portfolio builder form">
+          <h2 id="builder-heading" class="section-title">Build Your Portfolio</h2>
+          <p class="section-sub">Fill in each section below. Your preview updates instantly.</p>
+
+          <!-- STEP TABS -->
+          <div class="step-tabs" role="tablist" aria-label="Builder sections">
+            <button class="step-tab active" data-tab="basics" role="tab" aria-selected="true" aria-controls="tab-basics">Basics</button>
+            <button class="step-tab" data-tab="skills" role="tab" aria-selected="false" aria-controls="tab-skills">Skills</button>
+            <button class="step-tab" data-tab="projects" role="tab" aria-selected="false" aria-controls="tab-projects">Projects</button>
+            <button class="step-tab" data-tab="experience" role="tab" aria-selected="false" aria-controls="tab-experience">Experience</button>
+            <button class="step-tab" data-tab="contact" role="tab" aria-selected="false" aria-controls="tab-contact">Contact</button>
+          </div>
+
+          <!-- TAB: BASICS -->
+          <div class="tab-panel active" id="tab-basics" role="tabpanel" aria-labelledby="tab-basics-btn">
+            <div class="form-group">
+              <label for="fullName" class="form-label">Full Name <span aria-hidden="true">*</span></label>
+              <input type="text" id="fullName" class="form-input" placeholder="e.g. Aarav Sharma" aria-required="true" />
+              <span class="field-error" id="fullName-error" role="alert"></span>
+            </div>
+            <div class="form-group">
+              <label for="tagline" class="form-label">Tagline</label>
+              <input type="text" id="tagline" class="form-input" placeholder="e.g. Full Stack Developer · DecodeLabs 2026" />
+            </div>
+            <div class="form-group">
+              <label for="bio" class="form-label">Bio <span aria-hidden="true">*</span></label>
+              <textarea id="bio" class="form-textarea" rows="4" placeholder="Tell your story — who you are, what you do, what drives you." aria-required="true"></textarea>
+              <span class="field-error" id="bio-error" role="alert"></span>
+            </div>
+            <div class="form-group">
+              <label for="location" class="form-label">Location</label>
+              <input type="text" id="location" class="form-input" placeholder="e.g. Lucknow, India" />
+            </div>
+            <div class="tab-nav">
+              <button class="btn btn-primary" data-next="skills">Next: Skills →</button>
+            </div>
+          </div>
+
+          <!-- TAB: SKILLS -->
+          <div class="tab-panel" id="tab-skills" role="tabpanel" aria-labelledby="tab-skills-btn" hidden>
+            <div class="form-group">
+              <label for="skillInput" class="form-label">Add a Skill</label>
+              <div class="input-row">
+                <input type="text" id="skillInput" class="form-input" placeholder="e.g. JavaScript" aria-label="Skill name" />
+                <select id="skillLevel" class="form-select" aria-label="Skill level">
+                  <option value="beginner">Beginner</option>
+                  <option value="intermediate" selected>Intermediate</option>
+                  <option value="expert">Expert</option>
+                </select>
+                <button class="btn btn-secondary" id="addSkillBtn" aria-label="Add skill">Add</button>
+              </div>
+              <span class="field-error" id="skill-error" role="alert"></span>
+            </div>
+            <div class="skills-list" id="skillsList" aria-label="Added skills" aria-live="polite"></div>
+            <div class="tab-nav">
+              <button class="btn btn-outline" data-prev="basics">← Back</button>
+              <button class="btn btn-primary" data-next="projects">Next: Projects →</button>
+            </div>
+          </div>
+
+          <!-- TAB: PROJECTS -->
+          <div class="tab-panel" id="tab-projects" role="tabpanel" aria-labelledby="tab-projects-btn" hidden>
+            <div class="project-form-block">
+              <div class="form-group">
+                <label for="projTitle" class="form-label">Project Title <span aria-hidden="true">*</span></label>
+                <input type="text" id="projTitle" class="form-input" placeholder="e.g. Portfolio Maker App" />
+              </div>
+              <div class="form-group">
+                <label for="projDesc" class="form-label">Description</label>
+                <textarea id="projDesc" class="form-textarea" rows="3" placeholder="What did you build? What technologies did you use?"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="projUrl" class="form-label">Project URL</label>
+                <input type="url" id="projUrl" class="form-input" placeholder="https://github.com/yourusername/project" />
+              </div>
+              <button class="btn btn-secondary" id="addProjectBtn">+ Add Project</button>
+              <span class="field-error" id="project-error" role="alert"></span>
+            </div>
+            <div class="projects-list" id="projectsList" aria-label="Added projects" aria-live="polite"></div>
+            <div class="tab-nav">
+              <button class="btn btn-outline" data-prev="skills">← Back</button>
+              <button class="btn btn-primary" data-next="experience">Next: Experience →</button>
+            </div>
+          </div>
+
+          <!-- TAB: EXPERIENCE -->
+          <div class="tab-panel" id="tab-experience" role="tabpanel" aria-labelledby="tab-experience-btn" hidden>
+            <div class="exp-form-block">
+              <div class="form-group">
+                <label for="expRole" class="form-label">Role / Position <span aria-hidden="true">*</span></label>
+                <input type="text" id="expRole" class="form-input" placeholder="e.g. Full Stack Intern" />
+              </div>
+              <div class="form-group">
+                <label for="expCompany" class="form-label">Company / Organisation <span aria-hidden="true">*</span></label>
+                <input type="text" id="expCompany" class="form-input" placeholder="e.g. DecodeLabs" />
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="expStart" class="form-label">Start Date</label>
+                  <input type="month" id="expStart" class="form-input" />
+                </div>
+                <div class="form-group">
+                  <label for="expEnd" class="form-label">End Date</label>
+                  <input type="month" id="expEnd" class="form-input" />
+                </div>
+              </div>
+              <button class="btn btn-secondary" id="addExpBtn">+ Add Experience</button>
+              <span class="field-error" id="exp-error" role="alert"></span>
+            </div>
+            <div class="exp-list" id="expList" aria-label="Added experience" aria-live="polite"></div>
+            <div class="tab-nav">
+              <button class="btn btn-outline" data-prev="projects">← Back</button>
+              <button class="btn btn-primary" data-next="contact">Next: Contact →</button>
+            </div>
+          </div>
+
+          <!-- TAB: CONTACT -->
+          <div class="tab-panel" id="tab-contact" role="tabpanel" aria-labelledby="tab-contact-btn" hidden>
+            <div class="form-group">
+              <label for="contactEmail" class="form-label">Email <span aria-hidden="true">*</span></label>
+              <input type="email" id="contactEmail" class="form-input" placeholder="you@email.com" aria-required="true" />
+              <span class="field-error" id="email-error" role="alert"></span>
+            </div>
+            <div class="form-group">
+              <label for="contactGithub" class="form-label">GitHub URL</label>
+              <input type="url" id="contactGithub" class="form-input" placeholder="https://github.com/yourusername" />
+            </div>
+            <div class="form-group">
+              <label for="contactLinkedin" class="form-label">LinkedIn URL</label>
+              <input type="url" id="contactLinkedin" class="form-input" placeholder="https://linkedin.com/in/yourusername" />
+            </div>
+            <div class="tab-nav">
+              <button class="btn btn-outline" data-prev="experience">← Back</button>
+              <button class="btn btn-primary" id="savePortfolioBtn">Save &amp; View Portfolio →</button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- LIVE PREVIEW PANEL -->
+        <aside class="preview-panel" id="preview" aria-label="Live portfolio preview" aria-live="polite">
+          <div class="preview-header">
+            <span class="preview-badge">Live Preview</span>
+          </div>
+          <div class="preview-body" id="previewBody">
+            <div class="preview-placeholder">
+              <div class="preview-icon" aria-hidden="true">◎</div>
+              <p>Your portfolio preview will appear here as you type.</p>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about-section" id="about" aria-labelledby="about-heading">
+      <div class="about-content">
+        <h2 id="about-heading" class="section-title">Why This Exists</h2>
+        <p class="about-text">
+          Built as part of the DecodeLabs Full Stack Development Industrial Training Kit — Batch 2026.
+          This tool demonstrates all three project milestones: a responsive frontend interface,
+          a backend API layer, and database integration — combined into one real-world application.
+        </p>
+        <div class="milestone-grid">
+          <article class="milestone-card">
+            <span class="milestone-num">01</span>
+            <h3 class="milestone-title">Responsive Frontend</h3>
+            <p class="milestone-desc">HTML5, CSS3, vanilla JavaScript. Mobile-first. No frameworks.</p>
+          </article>
+          <article class="milestone-card">
+            <span class="milestone-num">02</span>
+            <h3 class="milestone-title">Backend API</h3>
+            <p class="milestone-desc">RESTful endpoints. GET &amp; POST. JSON. Validated. Documented.</p>
+          </article>
+          <article class="milestone-card">
+            <span class="milestone-num">03</span>
+            <h3 class="milestone-title">Database Integration</h3>
+            <p class="milestone-desc">Schema design. CRUD operations. Data integrity. Parameterized queries.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <p class="footer-brand">stitchfolio</p>
+      <p class="footer-copy">DecodeLabs Industrial Training Kit · Batch 2026</p>
+    </div>
+  </footer>
+
+  <!-- PORTFOLIO VIEW MODAL -->
+  <div class="portfolio-modal" id="portfolioModal" role="dialog" aria-modal="true" aria-labelledby="modal-name" hidden>
+    <div class="modal-inner">
+      <button class="modal-close" id="modalClose" aria-label="Close portfolio view">✕</button>
+      <div class="modal-content" id="modalContent"></div>
+      <div class="modal-actions">
+        <button class="btn btn-secondary" id="copyPortfolioBtn">Copy Portfolio Data</button>
+        <button class="btn btn-primary" id="editPortfolioBtn">← Edit Portfolio</button>
+      </div>
+    </div>
+  </div>
+  <div class="modal-backdrop" id="modalBackdrop" hidden aria-hidden="true"></div>
+
+  <script src="js/state.js"></script>
+  <script src="js/validation.js"></script>
+  <script src="js/preview.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

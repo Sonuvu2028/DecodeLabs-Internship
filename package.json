@@ -1,0 +1,19 @@
+{
+  "name": "stitchfolio-backend",
+  "version": "1.0.0",
+  "description": "stitchfolio — RESTful API backend. DecodeLabs Batch 2026.",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "nodemon backend/server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "pg": "^8.21.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
